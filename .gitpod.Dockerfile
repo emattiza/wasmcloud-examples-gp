@@ -4,8 +4,9 @@ RUN . /etc/os-release && \
     echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list && \
     curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/Release.key | sudo apt-key add -
 RUN curl -s https://packagecloud.io/install/repositories/wasmcloud/core/script.deb.sh | bash
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 && add-apt-repository ppa:rmescandon/yq
 RUN apt update && \
-    install-packages wash zsh inotify-tools skopeo
+    install-packages wash zsh inotify-tools skopeo httpie yq
 USER gitpod
 RUN cp /home/gitpod/.profile /home/gitpod/.profile_orig && \
     curl -fsSL https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable \
