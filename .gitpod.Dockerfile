@@ -19,4 +19,5 @@ RUN cp /home/gitpod/.profile /home/gitpod/.profile_orig && \
 ENV PATH=$PATH:$HOME/.cargo/bin
 # share env see https://github.com/gitpod-io/workspace-images/issues/472
 RUN echo "PATH="${PATH}"" | sudo tee /etc/environment
+RUN echo "127.0.0.1\tregistry" | sudo tee -a /etc/hosts > /dev/null
 RUN rustup target add wasm32-unknown-unknown
