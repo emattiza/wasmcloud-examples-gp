@@ -1,6 +1,4 @@
 #!/bin/bash
-EXAMPLE_DIR="./echo"
-EXAMPLE_RQSTD="actor/echo"
 
 ## Some Logging
 exec 3>&2 # logging stream (file descriptor 3) defaults to STDERR
@@ -39,9 +37,11 @@ init_example () {
     cd "$1"
     # Do startup work here
     cp ../wasm-cloud-base/actor.mk ./
-    sed -i 's#../../build/makefiles/actor.mk#./actor.mk#gi'
+    sed -i 's#../../build/makefiles/actor.mk#./actor.mk#gi' Makefile
     make
-    cd -
+    debug $(make target-path-abs)
+    debug $(make actor_id)
+    cd - > /dev/null
 }
 
 
@@ -53,12 +53,16 @@ init_example () {
 # get_examples [dir]
 # get_examples actor
 # An example set of steps to pull an example and run
-debug "Get examples under $EXAMPLE_RQSTD directory"
-get_examples "$EXAMPLE_RQSTD"
-debug "fetch example echo from $EXAMPLE_RQSTD into $EXAMPLE_DIR"
-fetch_example "$EXAMPLE_RQSTD" "$EXAMPLE_DIR"
-debug "bootstrap example"
-init_example "$EXAMPLE_DIR"
-debug "remove example from repo"
-# remove_example "$EXAMPLE_DIR"
-debug "complete!"
+run_all_tasks () {
+    debug "Get examples under $EXAMPLE_RQSTD directory"
+    get_examples "$EXAMPLE_RQSTD"
+    debug "fetch example echo from $EXAMPLE_RQSTD into $EXAMPLE_DIR"
+    fetch_example "$EXAMPLE_RQSTD" "$EXAMPLE_DIR"
+    debug "bootstrap example"
+    init_example "$EXAMPLE_DIR"
+    # debug "remove example from repo"
+    # remove_example "$EXAMPLE_DIR"
+    debug "complete!"
+}
+EXAMPLE_DIR="${1:-./echo}" EXAMPLE_RQSTD="${2:-actor/echo}" run_all_tasks
+
