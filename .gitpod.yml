@@ -1,0 +1,26 @@
+tasks:
+  - init: |
+      sh wasm-cloud-base/init.sh
+    command: |
+      sh wasm-cloud-base/command.sh
+
+ports:
+  - port: 4000
+    visibility: private
+    onOpen: open-preview
+
+github:
+  prebuilds:
+    master: true
+    pullRequests: true
+    addBadge: true
+    branches: true
+
+vscode:
+  extensions:
+    - matklad.rust-analyzer
+    - serayuzgur.crates
+    - bungcip.better-toml
+
+image:
+  file: .gitpod.Dockerfile
