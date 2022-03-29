@@ -1,23 +1,21 @@
 # A **wasmCloud** template on Gitpod
 
-This is a [**wasmCloud**](https://wasmcloud.dev/) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
+This is a repo for launching [**wasmCloud**](https://wasmcloud.dev/) example apps on [Gitpod](https://www.gitpod.io/).
 
 ## Next Steps
 
-Click the button below to start a new development environment:
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/emattiza/template-wasmcloud)
-
-
-## Get Started With Your Own Project
-
-### A new project
-
-Click the above "Open in Gitpod" button to start a new workspace. Once you're ready to push your first code changes, Gitpod will guide you to fork this project so you own it.
-
-### An existing project
-
-You can use this repo's files as a starter to create a gitpod remote dev environment. Of note, copy the wasm-cloud-base folder for all the prebuild and docker compose magic, and copy the .gitpod.yml and .gitpod.Dockerfile for setting up the workspace image and prebuilds. If you need to make changes, see the gitpod website for references on the .gitpod.yml and [how remote dev environments work]([[https://www.gitpod.io/docs/references/gitpod-yml) .  (you can also use [JetBrains](https://www.gitpod.io/docs/ides-and-editors/intellij), all you IntelliJ-Rust fans!)
+### Actors
+| Launch | Example | Description | OCI Reference <br/> (refer to example for latest version) |
+|---|---|---|---|
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Fecho,EXAMPLE_DIR=echo/https://github.com/emattiza/wasmcloud-examples-gp)|[echo](https://github.com/wasmcloud/examples/tree/main/actor/echo) | An actor that listens on an HTTP port and returns a JSON payload describing the incoming request |  `wasmcloud.azurecr.io/echo` |
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Fecho-messaging,EXAMPLE_DIR=echo-messaging/https://github.com/emattiza/wasmcloud-examples-gp)| [echo-messaging](https://github.com/wasmcloud/examples/tree/main/actor/echo-messaging) | An actor that listens on a message broker topic and replies |  `wasmcloud.azurecr.io/echo-messaging` |
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Fhello,EXAMPLE_DIR=hello/https://github.com/emattiza/wasmcloud-examples-gp)| [hello](https://github.com/wasmcloud/examples/tree/main/actor/hello) | Canonical "hello world" actor that listens on an HTTP port and replies with a greeting |  `wasmcloud.azurecr.io/hello` |
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Fkvcounter,EXAMPLE_DIR=kvcounter/https://github.com/emattiza/wasmcloud-examples-gp)| [kvcounter](https://github.com/wasmcloud/examples/tree/main/actor/kvcounter) | An actor that uses the key-value store to increment a counter and return a value for every HTTP request it receives | `wasmcloud.azurecr.io/kvcounter` |
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Flogging,EXAMPLE_DIR=logging/https://github.com/emattiza/wasmcloud-examples-gp)| [logging](https://github.com/wasmcloud/examples/tree/main/actor/logging) | An actor that demonstrates the builtin logging capability provider | `wasmcloud.azurecr.io/logging` |
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Frandom,EXAMPLE_DIR=random/https://github.com/emattiza/wasmcloud-examples-gp)| [random](https://github.com/wasmcloud/examples/tree/main/actor/random) | An actor that demonstrates the builtin random number generation capability provider | `wasmcloud.azurecr.io/random` |
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Ftodo-sql,EXAMPLE_DIR=todo-sql/https://github.com/emattiza/wasmcloud-examples-gp)| [todo-sql](https://github.com/wasmcloud/examples/tree/main/actor/todo-sql) | An todo-application using sql database, https server (with TLS), logging, and numbergen | (unpublished) |
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Ftodo,EXAMPLE_DIR=todo/https://github.com/emattiza/wasmcloud-examples-gp)| [todo](https://github.com/wasmcloud/examples/tree/main/actor/todo) | An todo-application using keyvalue store, http server, and logging | (unpublished) |
+|[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#EXAMPLE_RQSTD=actor%2Fxkcd,EXAMPLE_DIR=xkcd/https://github.com/emattiza/wasmcloud-examples-gp)| [xkcd](https://github.com/wasmcloud/examples/tree/main/actor/xkcd) | A application that generates xkcd comics | `wasmcloud.azurecr/xkcd` |
 
 ## Notes & caveats
 
