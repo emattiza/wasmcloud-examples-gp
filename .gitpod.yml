@@ -1,8 +1,13 @@
 tasks:
-  - init: |
+  - name: Fetch Example
+    command: |
+      gp await-port 4000 && ./wasm-cloud-base/fetch-repos.sh
+  - name: Run Background WasmCloud Host
+    init: |
       sh wasm-cloud-base/init.sh
     command: |
       sh wasm-cloud-base/command.sh
+      gp sync-done host-loaded
 
 ports:
   - port: 4000
