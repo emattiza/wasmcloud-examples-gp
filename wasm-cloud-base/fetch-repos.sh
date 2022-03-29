@@ -64,5 +64,5 @@ run_all_tasks () {
     # remove_example "$EXAMPLE_DIR"
     debug "complete!"
 }
-EXAMPLE_DIR="${1:-./echo}" EXAMPLE_RQSTD="${2:-actor/echo}" run_all_tasks
+EXAMPLE_DIR="${EXAMPLE_DIR:-./echo}" EXAMPLE_RQSTD="${EXAMPLE_RQSTD:-actor/echo}" run_all_tasks
 
